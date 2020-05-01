@@ -14,7 +14,7 @@ services:
     image: mysql:5.7
     container_name: mysql
     ports:
-      -  "3306:3306"
+      -  "4306:3306"
     volumes:
       -  ./db:/var/lib/mysql
       -  ./my_conf:/etc/mysql/conf.d
