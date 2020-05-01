@@ -56,8 +56,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|first_operation_class|string|null: false|
-|secondoperation_class|string|null: false|
+|first_operation_class|string||
+|secondoperation_class|string||
 |third_operation_class|string||
 |forth_operation_class|string||
 |fifth_operation_class|string||
