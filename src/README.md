@@ -7,7 +7,7 @@
 - 発注者用数量計算書表示機能（変更ごとに行を追加）
 - 受注者用数量計算書表示機能（出来高数量を並べて表示）
 - 内容検索機能（インクリメンタルサーチ）
-- 会話形式で検索を可能とする
+- 音声で検索を可能とする
 - 変更理由保存と数量へのリンク機能
 
 
@@ -45,6 +45,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
+|specific|string|null: false|
+|span|string|null: false|
 |period|string|null: false|
 |project_id|integer|null: false, foreign_key: true|
 
@@ -56,13 +58,13 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|first_operation_class|string|null: false|
-|secondoperation_class|string|null: false|
+|first_operation_class|string||
+|secondoperation_class|string||
 |third_operation_class|string||
 |forth_operation_class|string||
 |fifth_operation_class|string||
 |sixth_operation_class|string||
-|record_timing_id|string|null: false, foreign_key: true|
+|record_timing_id|string|foreign_key: true|
 
 - belongs_to :record_timings
 - has_one :operation_amount
@@ -72,14 +74,14 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|first_amount_name|string|null: false|
-|first_amount|integer|null: false|
+|first_amount_name|string||
+|first_amount|integer||
 |second_amount_name|string||
 |second_amount|integer||
 |third_amount_name|string|
 |third_amount|integer||
 |memo|text||
-|operation_id|integer|null: false, foreign_key: true|
+|operation_id|integer|foreign_key: true|
 
 - belongs_to :operation_amount
 - has_one :reason
