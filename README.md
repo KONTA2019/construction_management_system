@@ -62,7 +62,7 @@
 |forth_operation_class|string||
 |fifth_operation_class|string||
 |sixth_operation_class|string||
-|record_timing_id|string|null: false, foreign_key: true|
+|record_timing_id|string|foreign_key: true|
 
 - belongs_to :record_timings
 - has_one :operation_amount
