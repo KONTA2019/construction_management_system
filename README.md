@@ -45,6 +45,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
+|specific|string|null: false|
+|span|string|null: false|
 |period|string|null: false|
 |project_id|integer|null: false, foreign_key: true|
 
