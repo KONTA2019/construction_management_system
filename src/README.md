@@ -22,7 +22,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|nick_name|string|null: false|
+|nick_name|string|null: false,unique: true|
 |first_name|string|null: false|
 |last_name|string|null: false|
 |organizationname|string|null: false|
