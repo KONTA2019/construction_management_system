@@ -22,6 +22,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
+|nick_name|string|null: false|
 |first_name|string|null: false|
 |last_name|string|null: false|
 |organizationname|string|null: false|
@@ -84,8 +85,10 @@
 |first_amount|integer||
 |second_amount_name|string||
 |second_amount|integer||
-|third_amount_name|string|
+|third_amount_name|string||
 |third_amount|integer||
+|forth_amount_name|string||
+|forth_amount|integer||
 |memo|text||
 |operation_id|integer|foreign_key: true|
 
