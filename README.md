@@ -22,7 +22,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|username|string|null: false|
+|first_name|string|null: false|
+|last_name|string|null: false|
 |organizationname|string|null: false|
 |password|string|null: false|
 |password_confirmation|string|null: false|
