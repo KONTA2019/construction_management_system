@@ -56,7 +56,7 @@
 |project_id|integer|null: false, foreign_key: true|
 
 - belongs_to :project
-- has_many :operation
+- has_many :operations
 
 
 ### operationテーブル
@@ -71,7 +71,7 @@
 |sixth_operation_class|string||
 |record_timing_id|string|foreign_key: true|
 
-- belongs_to :record_timings
+- belongs_to :record_timing
 - has_one :operation_amount
 
 
