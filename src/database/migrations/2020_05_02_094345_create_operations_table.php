@@ -17,10 +17,10 @@ class CreateOperationsTable extends Migration
             $table->increments('id');
             $table->string('first_operation_class');
             $table->string('second_operation_class');
-            $table->string('third_operation_class');
-            $table->string('forth_operation_class');
-            $table->string('fifth_operation_class');
-            $table->string('sixth_operation_class');
+            $table->string('third_operation_class')->nullable();
+            $table->string('forth_operation_class')->nullable();
+            $table->string('fifth_operation_class')->nullable();
+            $table->string('sixth_operation_class')->nullable();
             $table->integer('record_timing_id')->unsigned();
             $table->foreign('record_timing_id')->references('id')->on('record_timings');
             $table->timestamps();
