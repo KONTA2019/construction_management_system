@@ -21,6 +21,8 @@ class CreateOperationAmountsTable extends Migration
             $table->integer('second_amount')->nullable();
             $table->string('third_amount_name')->nullable();
             $table->integer('third_amount')->nullable();
+            $table->string('forth_amount_name')->nullable();
+            $table->integer('forth_amount')->nullable();
             $table->integer('operation_id')->unsigned();
             $table->foreign('operation_id')->references('id')->on('operations')->nullable();
             $table->timestamps();
