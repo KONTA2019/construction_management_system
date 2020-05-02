@@ -13,6 +13,10 @@
 
 ## DB設計
 
+
+### ER図
+![ER図](https://user-images.githubusercontent.com/58900062/80857141-a469e400-8c8a-11ea-9623-89e5dcfb4917.png)
+
 ### userテーブル
 
 |Column|Type|Options|
