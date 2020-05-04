@@ -53,6 +53,11 @@ td {
   padding: 0;
 }
 
+li {
+  text-align: inherit;
+  display: inherit;
+}
+
 table {
   border-collapse: collapse;
   border-spacing: 0;
@@ -176,12 +181,14 @@ body {
 }
 
 .top-btn ul li {
-  margin-top: 10px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  vertical-align: middle;
   margin-bottom: 10px;
   height: 10vh;
   width: 200px;
   max-width: 100vw;
-  background-color: #e7d429;
+  background-color: #bedaec;
   color: white;
 }
 
