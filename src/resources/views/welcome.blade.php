@@ -4,13 +4,14 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>ConstructionManagementSystem</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
+        <!-- <link rel=”stylesheet” href=”/css/app.css”> -->
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         <!-- Styles -->
-        <style>
+        <!-- <style>
             html, body {
                 background-color: #fff;
                 color: #636b6f;
@@ -61,30 +62,43 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
-        </style>
+        </style> -->
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
+        
 
+            <div class="welcome_content">
+                <div class="title_m-b-md">
+                    Construction&emsp;&emsp;&emsp; <br>
+                    Management<br>
+                    &emsp;&emsp;&emsp;&emsp;System<br>
+                </div>
+
+                <div class="flex-center position-ref full-height">
+            @if (Route::has('login'))
+                <div class="top-btn">
+                    <ul list-style:none>
+                    @auth
+                        <li>
+                        <a href="{{ url('/home') }}">Home</a>
+                        </li>
+                    @else
+                        <li>
+                        <a href="{{ route('login') }}">ログイン</a>
+                        </li>
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
+                            <li>
+                            <a href="{{ route('register') }}">新規登録</a>
+                            </li>
                         @endif
                     @endauth
+                        <li>
+                            <a href="{{ route('register') }}">音声検索</a>
+                        </li>
+                    </ul>
                 </div>
             @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
+                <!-- <div class="links">
                     <a href="https://laravel.com/docs">Docs</a>
                     <a href="https://laracasts.com">Laracasts</a>
                     <a href="https://laravel-news.com">News</a>
@@ -93,7 +107,7 @@
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://vapor.laravel.com">Vapor</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+                </div> -->
             </div>
         </div>
     </body>
