@@ -13,8 +13,12 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    You are logged in!
+                    <ul>
+                        <li>
+                            <a href="{{ route('project.create') }}">新規工事(委託)の登録</a>
+                        </li>
+                        
+                    </ul>
                 </div>
             </div>
         </div>
