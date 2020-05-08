@@ -130,3 +130,11 @@ legend {
 }
 /* YUI CSS Detection Stamp */
 #yui3-css-stamp.cssreset { display: none; }
+
+title{
+  display: inherit;
+}
+
+a:-webkit-any-link {
+  text-decoration: inherit;
+}

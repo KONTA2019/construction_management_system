@@ -154,6 +154,14 @@ legend {
   display: none;
 }
 
+title {
+  display: inherit;
+}
+
+a:-webkit-any-link {
+  text-decoration: inherit;
+}
+
 html,
 body {
   background-color: #fff;
@@ -372,11 +380,11 @@ sup {
   top: -.5em;
 }
 
-/* a { */
-  /* color: #3490dc; */
-  /* text-decoration: none;
+a {
+  color: #3490dc;
+  text-decoration: none;
   background-color: transparent;
-} */
+}
 
 a:hover {
   color: #1d68a7;
@@ -11083,5 +11091,9 @@ a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6;
   }
+}
+
+.navbar-brand {
+  text-decoration: none;
 }
 
