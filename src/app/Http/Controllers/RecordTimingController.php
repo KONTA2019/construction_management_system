@@ -21,7 +21,10 @@ class RecordTimingController extends Controller
           $record_timing = new RecordTiming;
           // $project->user_id = auth()->id();
           // Company::findOrFail($request->company_id);
-          $record_timing->project_id = Project::all()->id();
+          // $record_timing = Project::firstOrNew([ 'project_id' => $project_id ]);
+
+          // $record_timing->project_id = Project::project_id();
+          $record_timing->project_id = $request->input('project_id');
           $record_timing->specific = $request->input('specific');
           $record_timing->span = $request->input('span');
           $record_timing->period = $request->input('period');
@@ -29,9 +32,6 @@ class RecordTimingController extends Controller
           // dd($record_timing);
 
           $record_timing->save();
-
-          // $project->span = $request->input('span');
-          // $project->period = $request->input('period');
 
           
 

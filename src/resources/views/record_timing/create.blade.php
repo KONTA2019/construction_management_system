@@ -24,6 +24,7 @@
     当初・変更を登録
 <form method="POST" action="{{route('record_timing.store')}}">
 @csrf
+<Input  type="hidden"  name="project_id" value="{{$project->id}}" >
 <br>当初か変更か<br>
 <select name="specific">
 <option valu="">選択してください</option>

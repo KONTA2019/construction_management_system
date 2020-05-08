@@ -34,6 +34,9 @@ class ProjectController extends Controller
           $project->prefperson_in_charge = $request->input('prefperson_in_charge');
           $project->vendorperson_in_charge = $request->input('vendorperson_in_charge');
           $project->city = $request->input('city');
+
+          // $project->id = Project::id();
+          // $project->record_timing()->create($request->get('record_timing', []));
           $project->save();
           
           // $record_timing = new RecordTiming;
@@ -49,9 +52,9 @@ class ProjectController extends Controller
           // $project->span = $request->input('span');
           // $project->period = $request->input('period');
 
-          
+          return view('record_timing.create',compact('project'));
 
-          return redirect()->route('record_timing.create');
+          // return redirect()->route('record_timing.create');
       
      }
  

@@ -16,7 +16,7 @@ class Project extends Model
     }
 
 
-    protected $primaryKey = "project_id";
+    // protected $primaryKey = "project_id";
     public function record_timing()
     {
         // return $this->hasMany(RecordTiming::class,'project_id');
