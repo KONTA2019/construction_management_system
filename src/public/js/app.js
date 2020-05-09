@@ -49779,6 +49779,8 @@ module.exports = function(module) {
  */
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+__webpack_require__(/*! ./operation */ "./resources/js/operation.js");
+
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /**
  * The following block of code may be used to automatically register your
@@ -49914,6 +49916,68 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/operation.js":
+/*!***********************************!*\
+  !*** ./resources/js/operation.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$('#image-input').on('change', function (e) {
+  //ファイルオブジェクトを取得する
+  var files = e.target.files;
+  $.each(files, function (index, file) {
+    var reader = new FileReader(); //画像でない場合は処理終了
+
+    if (file.type.indexOf("image") < 0) {
+      alert("画像ファイルを指定してください。");
+      return false;
+    } //アップロードした画像を設定する
+
+
+    reader.onload = function (file) {
+      return function (e) {
+        var imageLength = $('#output-box').children('li').length; // 表示されているプレビューの数を数える
+
+        var labelLength = $("#image-input>label").eq(-1).data('label-id'); // #image-inputの子要素labelの中から最後の要素のカスタムデータidを取得
+        // プレビュー表示
+
+        $('#image-input').before("<li class=\"preview-image\" id=\"upload-image".concat(labelLength, "\" data-image-id=\"").concat(labelLength, "\">\n                                    <figure class=\"preview-image__figure\">\n                                      <img src='").concat(e.target.result, "' title='").concat(file.name, "' >\n                                    </figure>\n                                    <div class=\"preview-image__button\">\n                                      <a class=\"preview-image__button__edit\">\u7DE8\u96C6</a>\n                                      <a class=\"preview-image__button__delete\" data-image-id=\"").concat(labelLength, "\">\u524A\u9664</a>\n                                    </div>\n                                  </li>"));
+        $("#image-input>label").eq(-1).css('display', 'none'); // 入力されたlabelを見えなくする
+
+        if (imageLength < 9) {
+          // 表示されているプレビューが９以下なら、新たにinputを生成する
+          $("#image-input").append("<label for=\"item_images".concat(labelLength + 1, "\" class=\"sell-container__content__upload__items__box__label\" data-label-id=\"").concat(labelLength + 1, "\">\n                                      <input multiple=\"multiple\" class=\"sell-container__content__upload__items__box__input\" id=\"item_images").concat(labelLength + 1, "\" style=\"display: none;\" type=\"file\" name=\"item[images][]\">\n                                      <i class=\"fas fa-camera fa-lg\"></i>\n                                    </label>"));
+        }
+
+        ;
+      };
+    }(file);
+
+    reader.readAsDataURL(file);
+  });
+}); //削除ボタンが押された時
+
+$(document).on('click', '.preview-image__button__delete', function () {
+  // イベント元のカスタムデータ属性の値を取得
+  var targetImageId = $(this).data('image-id');
+  $("#upload-image".concat(targetImageId)).remove(); //プレビューを削除
+
+  $("[for=item_images".concat(targetImageId, "]")).remove(); //削除したプレビューに関連したinputを削除
+
+  var imageLength = $('#output-box').children('li').length; // 表示されているプレビューの数を数える
+
+  if (imageLength == 9) {
+    var labelLength = $("#image-input>label").eq(-1).data('label-id'); // 表示されているプレビューが９なら,#image-inputの子要素labelの中から最後の要素のカスタムデータidを取得
+
+    $("#image-input").append("<label for=\"item_images".concat(labelLength + 1, "\" class=\"sell-container__content__upload__items__box__label\" data-label-id=\"").concat(labelLength + 1, "\">\n                            <input multiple=\"multiple\" class=\"sell-container__content__upload__items__box__input\" id=\"item_images").concat(labelLength + 1, "\" style=\"display: none;\" type=\"file\" name=\"item[images][]\">\n                            <i class=\"fas fa-camera fa-lg\"></i>\n                          </label>"));
+  }
+
+  ;
+});
 
 /***/ }),
 

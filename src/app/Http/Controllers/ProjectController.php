@@ -35,27 +35,10 @@ class ProjectController extends Controller
           $project->vendorperson_in_charge = $request->input('vendorperson_in_charge');
           $project->city = $request->input('city');
 
-          // $project->id = Project::id();
-          // $project->record_timing()->create($request->get('record_timing', []));
           $project->save();
-          
-          // $record_timing = new RecordTiming;
-          // $record_timing->project_id = $project->id;
-          // $record_timing->specific = $request->input('specific');
-          // $record_timing->span = $request->input('span');
-          // $record_timing->period = $request->input('period');
-          // $record_timing->save();
-          // dd($record_timing);
-
-
-
-          // $project->span = $request->input('span');
-          // $project->period = $request->input('period');
 
           return view('record_timing.create',compact('project'));
 
-          // return redirect()->route('record_timing.create');
-      
      }
  
      // getでprojects/idにアクセスされた場合

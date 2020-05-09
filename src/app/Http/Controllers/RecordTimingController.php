@@ -17,26 +17,14 @@ class RecordTimingController extends Controller
      public function store(Request $request)
      {
           
-          
           $record_timing = new RecordTiming;
-          // $project->user_id = auth()->id();
-          // Company::findOrFail($request->company_id);
-          // $record_timing = Project::firstOrNew([ 'project_id' => $project_id ]);
-
-          // $record_timing->project_id = Project::project_id();
           $record_timing->project_id = $request->input('project_id');
           $record_timing->specific = $request->input('specific');
           $record_timing->span = $request->input('span');
           $record_timing->period = $request->input('period');
-          
-          // dd($record_timing);
-
           $record_timing->save();
 
-          
-
-          return redirect('home');
-      
+          return view('operation.create',compact('record_timing'));
      }
 
 }

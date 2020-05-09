@@ -28,6 +28,8 @@ Route::get('/folders/{id}/tasks', 'TaskController@index')->name('tasks.index');
 
 Route::resource('project', 'ProjectController');
 Route::resource('record_timing', 'RecordTimingController');
+Route::resource('operation', 'OperationController');
+
 
 // Route::get('index', 'ProjectController@index')->name('project.index');
 // Route::get('create', 'ProjectController@create')->name('project.create');

@@ -10,7 +10,7 @@ class RecordTiming extends Model
         'specific', 'span', 'period', 'project_id',
     ];
     
-    protected $primaryKey = "record_timing_id";
+    // protected $primaryKey = "record_timing_id";
 
     public function project()
     {
@@ -21,7 +21,7 @@ class RecordTiming extends Model
     public function operation()
     {
         // return $this->hasOne(Operation::class,'record_id');
-        return $this->hasOne('App\Models\Operation','record_id');
+        return $this->hasOne('App\Models\Operation','record_timing_id');
     }
 
 }
