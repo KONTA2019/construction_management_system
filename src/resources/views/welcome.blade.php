@@ -7,14 +7,12 @@
         <title>ConstructionManagementSystem</title>
 
         <!-- Fonts -->
-        <!-- <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet"> -->
-        <!-- <link rel=”stylesheet” href=”/css/app.css”> -->
-        <link rel="stylesheet" href="{{ asset('css/welcom.css') }}">
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Noto+Sans+JP:400,700" rel="stylesheet">
+
+        <link rel="stylesheet" href="{{ asset('css/welcome.css') }}">
 
     </head>
     <body>
-        
-
             <div class="welcome_content">
                 <div class="title_m-b-md">
                     Construction&emsp;&emsp;&emsp; <br>

@@ -1,69 +1,69 @@
-// html, body {
-//     background-color: #fff;
-//     color: #636b6f;
-//     font-family: 'Nunito', sans-serif;
-//     font-weight: 200;
-//     height: 100%;
-//     width: 100vw;
-//     margin: 0;
+html, body {
+    background-color: #fff;
+    color: #636b6f;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 200;
+    height: 100%;
+    width: 100vw;
+    margin: 0;
+}
+
+// .full-height {
+//     height: 100vh;
 // }
 
-// // .full-height {
-// //     height: 100vh;
-// // }
+.flex-center {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
 
-// .flex-center {
-//     align-items: center;
-//     display: flex;
-//     justify-content: center;
-// }
+.position-ref {
+    position: relative;
+}
 
-// .position-ref {
-//     position: relative;
-// }
-
-// .top-btn {
-//     ul {
-//         list-style: none;
-//         display:inline-block;
-//         // -webkit-appearance: none;
-//         // -moz-appearance: none;
+.top-btn {
+    ul {
+        list-style: none;
+        display:inline-block;
+        // -webkit-appearance: none;
+        // -moz-appearance: none;
         
-//         li{
-//             -webkit-appearance: none;
-//             -moz-appearance: none;
-//             vertical-align: middle;
-//             // margin-top: 10px;
-//             margin-bottom: 10px;
-//             // text-align: center;
-//             height: 10vh;
-//             width: 200px;
-//             max-width: 100vw;
-//             background-color:rgb(190, 218, 236);
-//             color: white;
-//         }
-//       }
+        li{
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            vertical-align: middle;
+            // margin-top: 10px;
+            margin-bottom: 10px;
+            // text-align: center;
+            height: 10vh;
+            width: 200px;
+            max-width: 100vw;
+            background-color:rgb(190, 218, 236);
+            color: white;
+        }
+      }
+}
+
+.welcome_content {
+    text-align: center;
+    .title_m-b-md {
+        font-family: cursive;
+        font-size: xx-large;
+        margin-bottom: 30px;
+        padding-top: 10vh;
+    }
+}
+
+
+
+// .links > a {
+//     color: #636b6f;
+//     padding: 0 25px;
+//     font-size: 13px;
+//     font-weight: 600;
+//     letter-spacing: .1rem;
+//     text-decoration: none;
+//     text-transform: uppercase;
 // }
-
-// .welcome_content {
-//     text-align: center;
-//     .title_m-b-md {
-//         font-family: cursive;
-//         font-size: xx-large;
-//         margin-bottom: 30px;
-//         padding-top: 10vh;
-//     }
-// }
-
-
-
-// // .links > a {
-// //     color: #636b6f;
-// //     padding: 0 25px;
-// //     font-size: 13px;
-// //     font-weight: 600;
-// //     letter-spacing: .1rem;
-// //     text-decoration: none;
-// //     text-transform: uppercase;
-// // }
 

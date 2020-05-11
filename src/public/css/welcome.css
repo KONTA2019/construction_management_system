@@ -1,28 +1,233 @@
-.header-form{
-  width:100vw;
-  height:100px;
-  display:flex;
-  justify-content: space-between;
+html,
+body {
+  /* background-color: #fff; */
+  color: #636b6f;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 200;
+  height: 100%;
+  width: 100vw;
+  margin: 0;
+  filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.6));
+}
+
+.flex-center {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.position-ref {
+  position: relative;
+}
+
+.top-btn ul {
+  list-style: none;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+li{
+  font-family: 'Lato', 'Noto Sans JP', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  vertical-align: middle;
+  margin:10px 20px 10px 20px;
+  height: 6vh;
+  width: 200px;
+  max-width: 100vw;
+  background-color: #bedaec;
+  color: white;
+  filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.6));
+}
+
+.welcome_content {
+  text-align: center;
+}
+
+.title_m-b-md {
+  font-family: cursive;
+  font-size: 30px;
+  margin-bottom: 10vh;
+  padding-top: 10vh;
+}
+
+@media (min-width: 480px) {
+  .title_m-b-md{
+    font-size: calc(40px + ((1vw - 6.4px)*3.571));
   }
-  
-  .header-form__title{
-    /* vertical-align: center; */
+  li{
+    padding-top: 1.5vh;
   }
-  
-  .header-form__title__chr{
-    text-decoration: none;
-    font-size: large;
+}
+@media (min-width: 1200px) {
+  .title_m-b-md{
+    font-size: 80px;
   }
-  
-  .header-form__nav{
-    display:flex;
-    justify-content: space-between;
+  li{
+    padding-top: 1.5vh;
   }
-  
-  .header-form__nav__login{
-    text-decoration: none;
-  }
-  
-  .header-form__nave__register{
-    text-decoration: none;
-  }
+}
+
+
+
+
+body {
+  background-image: url("uyuni_01.jpg"); 
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+
+
+
+a:link {color:rgb(78, 77, 76);} /*未訪問のリンクの色*/
+a:visited {color:rgb(78, 77, 76);} /*訪問済みのリンクの色*/
+a:hover {color:rgb(209, 139, 9);} /*カーソルが乗っているリンクの色*/
+/* a:active {color:rgb(209, 139, 9);} クリック中のリンクの色 */
+
+
+
+
+
+
+
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+  /* margin: 0; */
+  /* padding: 0; */
+  padding-inline-start:inherit;
+}
+
+li {
+  text-align: inherit;
+  display: inherit;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+fieldset,
+img {
+  border: 0;
+}
+
+/*
+  TODO think about hanlding inheritence differently, maybe letting IE6 fail a bit...
+*/
+
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+strong,
+th,
+var {
+  font-style: normal;
+  font-weight: normal;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+caption,
+th {
+  text-align: left;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+q:before,
+q:after {
+  content: '';
+}
+
+abbr,
+acronym {
+  border: 0;
+  font-variant: normal;
+}
+
+/* to preserve line-height and selector appearance */
+
+sup {
+  vertical-align: text-top;
+}
+
+sub {
+  vertical-align: text-bottom;
+}
+
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/*to enable resizing for IE*/
+
+input,
+textarea,
+select {
+  *font-size: 100%;
+}
+
+/*because legend doesn't inherit in IE */
+
+legend {
+  color: #000;
+}
+
+/* YUI CSS Detection Stamp */
+
+#yui3-css-stamp.cssreset {
+  display: none;
+}
+
+title {
+  display: inherit;
+}
+
+a:-webkit-any-link {
+  text-decoration: inherit;
+}
+
