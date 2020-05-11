@@ -1,24 +1,22 @@
 <link rel="stylesheet" href="{{ asset('css/operation-create.css') }}">
 
-<div id="app">
-    <nav class="navbar-expand-md navbar-light bg-white shadow-sm">
-        <!-- <div class="container"> -->
-        <a href="{{route('home')}}" class="navbar-brand">
+<div class="header-form">
+    <nav>
+        <div class="header-form__title">
+        <a href="{{route('home')}}" class="header-form__title_chr">
                     ConstructionManagementsystem
-                </a>
-            <div id="navbarSupportedContent" class="collapse navbar-collapse">
-                <!-- <ul class="navbar-nav mr-auto"></ul>  -->
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a href="http://127.0.0.1:8080/login" class="nav-link">Login</a>
-                    </li>
-                        <li class="nav-item">
-                            <a href="http://127.0.0.1:8080/register" class="nav-link">Register</a>
-                    </li>
-                </ul>
-            <!-- </div> -->
-        </nav>
-    </div>
+        </a>
+        <div class="header-form__nav">
+            <ul>
+                <li class="header-form__nav__login">
+                    <a href="http://127.0.0.1:8080/login" class="nav-link">Login</a>
+                </li>
+                <li class="header-form__nav__register">
+                    <a href="http://127.0.0.1:8080/register" class="nav-link">Register</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 </div>
     
 

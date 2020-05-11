@@ -1,0 +1,28 @@
+.header-form{
+  width:100vw;
+  height:100px;
+  display:flex;
+  justify-content: space-between;
+  }
+  
+  .header-form__title{
+    /* vertical-align: center; */
+  }
+  
+  .header-form__title__chr{
+    text-decoration: none;
+    font-size: large;
+  }
+  
+  .header-form__nav{
+    display:flex;
+    justify-content: space-between;
+  }
+  
+  .header-form__nav__login{
+    text-decoration: none;
+  }
+  
+  .header-form__nave__register{
+    text-decoration: none;
+  }
