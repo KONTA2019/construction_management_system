@@ -25,7 +25,10 @@ class OperationController extends Controller
           $operation->fifth_operation_class = $request->input('fifth_operation_class');
           $operation->sixth_operation_class = $request->input('sixth_operation_class');
           $operation->record_timing_id = $request->input('record_timing_id');
-          
+
+          $operation->record_timing_id = $request->input('kanni_keisan');
+          $operation->record_timing_id = $request->input('syousai_keisan');
+
           $operation->first_amount_name = $request->input('first_amount_name');
           $operation->first_amount = $request->input('first_amount');
           $operation->second_amount_name = $request->input('second_amount_name');

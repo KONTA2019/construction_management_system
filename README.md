@@ -1,22 +1,61 @@
-# construction_management_system の説明
+# Construction_management_system の説明
 
 ## 機能
 
-- 当初契約、変更契約内容保存（スクレイピングと手打ちを選択可能）
-- 当初数量、変更数量保存
-- 発注者用数量計算書表示機能（変更ごとに行を追加）
-- 受注者用数量計算書表示機能（出来高数量を並べて表示）
-- 他画面の記入欄を自動判定して、登録データを記入する機能
-- 内容検索機能（インクリメンタルサーチ）
-- 音声で検索を可能とする
-- 変更理由保存と数量へのリンク機能
+- 当初数量、変更数量保存（スクレイピングと手打ちを併用可能）
+- 受発注者用数量計算書を所定の形式によりエクセル表示
+- 他画面の記入欄を自動判定して、登録データを記入する機能（主に積算システムで使用）
+- 音声検索
+- LINE検索
+
+
+## DEMO
+（実装中）
+
+
+## 制作背景(意図)
+- 数量計算書は何度も同じ項目を書き直す書類です。そこで、一度の登録で済ませることができるようにすることで作成者の負担を減らすことができます。
+- ヒューマンエラーによる書類の矛盾を、同じ項目は一度しか入力しないようにすることでなくなるようにしました。
+- エクセルによるデータ保存は３万項目（セル）程度で動作に不具合を起こしますが、AWSとmysqlを使用することで3000万項目でも３億項目でも上限なしで登録できるようになります。
+- 出力でExcelを使用することで保存と書類化の機能を分けることで誤って大元のデータを削除することがなくなります。
+- 現在のデータの管理はlocalのサーバへの保存のため、他事務所のデータを確認できません。加えて、容量が80人で8TBとCADや写真を保存するとあっという間に上限となってしまう容量のサーバであるため、サーバー追加が頻繁にあり、どこに最新のデータを保存したかわからなくなることがよくありました。この２つの問題点もAWSへの一括保存により解決することができます。
+- リモートで作業が可能になります。
+
+
+## 工夫したポイント
+- 出力するシートを現在も使われている書式に揃えました。
+- 記入部分(create)に関してはあえてjavascriptを使用しないことで、誤って戻るを押した場合もsessionでデータを残すことができるようにしました。
+
+
+## 本番環境(デプロイ先、テストアカウント＆ID)
+（実装中）
+
+
+## 使用技術(開発環境)
+- ECSとcircleCIによる自動デプロイ、自動補修機能、自動保存容量拡大機能（予定）
+- LINEと連携（APIを利用）
+- スクレイピング
+- Laravel-Excel 3.1 の使用
+- mysql
+- ユーザー認証
+- javascriptによる動的な削除プレビュー（削除の取止めを可能とするため）
+- cssによるフロント実装（bootstrapを使用しない方法）
+
+
+## 課題や今後実装したい機能
+- このアプリのデータベースについては本来さらに正規化ができますが、逆に使いにくくなりそうだったためやめました。そのため、UXを損なわない正規化があれば取り入れたいです。
+- ユーザー認証のところでマスターユーザ登録により、決裁権を持つ人のみ全資料編集可とする機能を実装したいです。
+- 誰によって編集されたかの足跡機能も実装したいです
+- ぱんくず機能
+- UI/UXの追求（ページネーションなど）
 
 
 ## DB設計
 
 
 ### ER図
-![ER図](https://user-images.githubusercontent.com/58900062/80857141-a469e400-8c8a-11ea-9623-89e5dcfb4917.png)
+![v4.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/555157/90789d7a-c937-b450-b4f6-1541f2939860.png)
+
 
 ### userテーブル
 
@@ -71,16 +110,8 @@
 |forth_operation_class|string||
 |fifth_operation_class|string||
 |sixth_operation_class|string||
-|record_timing_id|string|foreign_key: true|
-
-- belongs_to :record_timing
-- has_one :operation_amount
-
-
-### operation_amountテーブル
-
-|Column|Type|Options|
-|------|----|-------|
+|kanni_keisan|string||
+|syousai_keisan|string||
 |first_amount_name|string||
 |first_amount|integer||
 |second_amount_name|string||
@@ -90,18 +121,9 @@
 |forth_amount_name|string||
 |forth_amount|integer||
 |memo|text||
-|operation_id|integer|foreign_key: true|
-
-- belongs_to :operation_amount
-- has_one :reason
-
-
-### reasonテーブル
-
-|Column|Type|Options|
-|------|----|-------|
 |reason_title|string||
 |reason_text|text||
-|operation_amount_id|integer|foreign_key: true|
+|record_timing_id|string|foreign_key: true|
 
-- belongs_to :operation_amount
+- belongs_to :record_timing
+

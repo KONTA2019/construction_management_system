@@ -24,6 +24,9 @@ class CreateOperationsTable extends Migration
             $table->integer('record_timing_id')->unsigned();
             $table->foreign('record_timing_id')->references('id')->nullable()->on('record_timings');
 
+            $table->string('kanni_keisan')->nullable();
+            $table->string('syousai_keisan')->nullable();
+
             $table->string('first_amount_name')->nullable();
             $table->integer('first_amount')->nullable();
             $table->string('second_amount_name')->nullable();

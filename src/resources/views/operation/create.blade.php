@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="{{ asset('css/app.css') }}">
+<link rel="stylesheet" href="{{ asset('css/operation-create.css') }}">
 
 <div id="app">
     <nav class="navbar-expand-md navbar-light bg-white shadow-sm">
@@ -41,6 +41,11 @@
 <br>第六工種<br>
 <input type="text" name="sixth_operation_class">
 
+<br>簡易数量計算<br>
+<input type="text" name="kanni_keisan">
+<br>詳細数量計算<br>
+<input type="text" name="syousai_keisan">
+
 <br>施工量名（１）<br>
 <input type="text" name="first_amount_name">
 <br>施工量（１）<br>
@@ -66,15 +71,17 @@
 <br>備考<br>
 <input type="text" name="meomo">
 
-<br>
+
+<div class= "add_operation",id = "add_operation">
+<br>追加する<br>
+</div>
+
 <button type="submit" class="btn btn-primary">
     登録
 </button>
 </form>
 
-<div class= "add_operation",id = "add_operation">
-    追加する
-</div>
+
 </div>
 
 
