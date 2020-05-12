@@ -1,5 +1,6 @@
+
 <body>
-    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/home1.css') }}">
     <div class="header-form">
         <div class="header-form__title">
             <a href="{{route('home')}}" class="header-form__title_chr">
@@ -39,5 +40,25 @@
             </ul>
         </div>
     </div>
+
+    <nav role="navigation">
+        <div class="nav_in">
+            <ul class="drop">
+                <li class="nav01"><a href="#" >トップページ</a></li>
+                <li class="nav02"><a href="#" >工事内容登録</a></li>
+                <li class="nav03"><a href="#" >工事内容編集</a></li>
+                <li class="nav04"><a href="#" >登録内容確認</a></li>
+                <li class="nav05"><a href="#" >登録内容削除</a></li>
+                <li class="nav06"><a href="#" >他のシステムに書込み</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class = "title">
+        <h2>
+            トップページ
+        </h2>
+    </div>
+
 </body>    
 
