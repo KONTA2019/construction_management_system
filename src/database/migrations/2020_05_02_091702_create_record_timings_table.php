@@ -19,7 +19,7 @@ class CreateRecordTimingsTable extends Migration
             $table->string('span');
             $table->string('period');
             $table->integer('project_id')->unsigned();
-            $table->foreign('project_id')->references('id')->on('projects');
+            $table->foreign('project_id')->references('id')->on('projects')->nullable()->onDelete('cascade');
             $table->timestamps();
         });
     }
