@@ -47,7 +47,7 @@
                 <li class="nav02"><a href="#" >工事内容登録</a></li>
                 <li class="nav03"><a href="#" >工事内容編集</a></li>
                 <li class="nav04"><a href="#" >登録内容確認</a></li>
-                <li class="nav05"><a href="#" >登録内容削除</a></li>
+                <li class="nav05"><a href="#" >変更内容登録</a></li>
                 <li class="nav06"><a href="#" >他のシステムに書込み</a></li>
             </ul>
         </div>

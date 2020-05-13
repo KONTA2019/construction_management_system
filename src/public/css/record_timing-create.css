@@ -3,11 +3,11 @@
   justify-content: center;
 }
 
-.firstregistration__body{
+.secondregistration__body{
   text-align: center;
 }
 
-.firstregistration__body{
+.secondregistration__body{
   display: block;
   width: 80vw;
   max-width: 600px;
@@ -17,10 +17,14 @@
   border: 1px solid rgb(216, 219, 223);
 }
 
-
 input{
   width:64vw;
   max-width: 480px;
+}
+
+select{
+  width: 80%;
+  height:30px;
 }
 
 
