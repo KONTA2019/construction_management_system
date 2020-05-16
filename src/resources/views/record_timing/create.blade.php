@@ -3,7 +3,7 @@
     <link rel="stylesheet" href="{{ asset('css/record_timing-create.css') }}">
     <div class="header-form">
         <div class="header-form__title">
-            <a href="{{route('home')}}" class="header-form__title_chr">
+            <a href="{{route('welcome')}}" class="header-form__title_chr">
                         ConstructionManagementSystem
             </a>
         </div>

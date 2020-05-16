@@ -1,11 +1,8 @@
-<link rel="stylesheet" href="{{ asset('css/operation-create.css') }}">
-
-
 <body>
-    <link rel="stylesheet" href="{{ asset('css/record_timing-create.css') }}">
+<link rel="stylesheet" href="{{ asset('css/operation-create1.css') }}">
     <div class="header-form">
         <div class="header-form__title">
-            <a href="{{route('home')}}" class="header-form__title_chr">
+            <a href="{{route('welcome')}}" class="header-form__title_chr">
                         ConstructionManagementSystem
             </a>
         </div>
@@ -63,68 +60,85 @@
     </div>
     
 
-<div class="registration">
+<div class="thirdregistration__title">
     工種区分の登録
-<form method="POST" action="{{route('operation.store')}}">
+</div>
+
+<form method="POST" action="{{route('operation.store')}}" >
 @csrf
 <Input  type="hidden"  name="record_timing_id" value="{{$record_timing->id}}" >
+
+
+<div class="thirdregistration__body">
 
 <div class="hidari">
 <div class="kousyu">
 <br>第一工種<br>
-<input type="text" name="first_operation_class">
+<input type="text" name="first_operation_class" placeholder="例）道路改良">
 <br>第二工種<br>
-<input type="text" name="second_operation_class">
+<input type="text" name="second_operation_class" placeholder="例）道路改良工">
 <br>第三工種<br>
-<input type="text" name="third_operation_class">
+<input type="text" name="third_operation_class" placeholder="例）道路土工">
 <br>第四工種<br>
-<input type="text" name="forth_operation_class">
+<input type="text" name="forth_operation_class" placeholder="例）掘削工">
 <br>第五工種<br>
-<input type="text" name="fifth_operation_class">
+<input type="text" name="fifth_operation_class" placeholder="例）掘削（軟岩）">
 <br>第六工種<br>
-<input type="text" name="sixth_operation_class">
+<input type="text" name="sixth_operation_class" placeholder="注）手作りの場合使用">
 </div>
 
+<br>単位<br>
+<input type="text" name="tanni" placeholder="例）m3">
 
 <div class="henkou">
 <br>変更内容<br>
-<input type="text" name="reason_title">
+<textarea name="reason_title" row="10" cols=”50″ wrap=”hard” class="reason" placeholder="例）軟岩の掘削量を100m3増量する。"></textarea>
 <br>変更理由<br>
-<input type="text" name="reason_text">
+<textarea name="reason_text" row="10" cols=”50″ wrap=”hard” class="reason" placeholder="例）現場測量の結果当初設計と差異があったため。"></textarea>
 </div>
 </div>
 
 
 <div class="migi">
+
+<div class = "sekouryou">
+<div class = "sekouryou1">
 <br>施工量名（１）<br>
-<input type="text" name="first_amount_name">
+<input type="text" name="first_amount_name" placeholder="例）設計数量">
 <br>施工量（１）<br>
-<input type="number" name="first_amount">
+<input type="number" name="first_amount" >
+</div>
+<div class = "sekouryou2">
 <br>施工量名（２）<br>
-<input type="text" name="second_amount_name">
+<input type="text" name="second_amount_name" placeholder="例）地山量">
 <br>施工量（２）<br>
 <input type="number" name="second_amount">
+</div>
+<div class = "sekouryou3">
 <br>施工量名（３）<br>
-<input type="text" name="third_amount_name">
+<input type="text" name="third_amount_name" placeholder="例）ほぐし量">
 <br>施工量（３）<br>
 <input type="number" name="third_amount">
+</div>
+<div class = "sekouryou4">
 <br>施工量名（４）<br>
-<input type="text" name="forth_amount_name">
+<input type="text" name="forth_amount_name" placeholder="例）締固め量">
 <br>施工量（４）<br>
 <input type="number" name="forth_amount">
+</div>
+</div>
 
 
 
-
-<br>簡易数量計算<br>
-<input type="text" name="kanni_keisan">
-<br>詳細数量計算<br>
-<input type="text" name="syousai_keisan">
-
+<br>簡易数量計算(500文字以下)<br>
+<textarea name="kanni_keisan" row="10" cols=”50″ wrap=”hard” class="keisansiki" placeholder="（使用方法）数量総括表にいれる数式を記述してください。"></textarea>
+<br>詳細数量計算(5,000文字以下)<br>
+<textarea name="ksyousai_keisan" row="100" cols=”50″ wrap=”hard” class="keisansiki" placeholder="（使用方法）数量計算書にいれる数式を記述してください。簡易数量計算と同じでも可です。"></textarea>
 
 
-<br>備考<br>
-<input type="text" name="meomo">
+
+<br>備考(1,000文字以下)<br>
+<textarea name="memo" row="20" cols=”50″ wrap=”hard” class="memo" placeholder="（使用方法）必要に応じて自由に記述してください。"></textarea>
 
 <button type="submit" class="btn btn-primary">
     登録

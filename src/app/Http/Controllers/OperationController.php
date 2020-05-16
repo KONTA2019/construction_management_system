@@ -26,8 +26,8 @@ class OperationController extends Controller
           $operation->sixth_operation_class = $request->input('sixth_operation_class');
           $operation->record_timing_id = $request->input('record_timing_id');
 
-          $operation->record_timing_id = $request->input('kanni_keisan');
-          $operation->record_timing_id = $request->input('syousai_keisan');
+          $operation->kanni_keisan = $request->input('kanni_keisan');
+          $operation->syousai_keisan = $request->input('syousai_keisan');
 
           $operation->first_amount_name = $request->input('first_amount_name');
           $operation->first_amount = $request->input('first_amount');
@@ -40,8 +40,10 @@ class OperationController extends Controller
           
           $operation->reason_title = $request->input('reason_title');
           $operation->reason_text = $request->input('reason_text');
-          $operation->forth_amount = $request->input('memo');
-                    
+          $operation->memo = $request->input('memo');
+
+          $operation->tanni = $request->input('tanni');
+          // dd($operation);
           $operation->save();
 
           return view('home');
