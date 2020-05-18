@@ -15,8 +15,8 @@ class CreateOperationsTable extends Migration
     {
         Schema::create('operations', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('first_operation_class');
-            $table->string('second_operation_class');
+            $table->string('first_operation_class')->nullable();
+            $table->string('second_operation_class')->nullable();
             $table->string('third_operation_class')->nullable();
             $table->string('forth_operation_class')->nullable();
             $table->string('fifth_operation_class')->nullable();

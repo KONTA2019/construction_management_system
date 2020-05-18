@@ -28,11 +28,16 @@ Route::get('/folders/{id}/tasks', 'TaskController@index')->name('tasks.index');
 
 Route::resource('project', 'ProjectController');
 Route::resource('record_timing', 'RecordTimingController');
-Route::resource('operation', 'OperationController');
+Route::resource('operation', 'OperationController',['except' => ['show']]);
 
+// Route::post('save', 'OperationController@save')->name('operation.save');
+// Route::post('/operation/create/{record_timing}', 'OperationController@create');
+// Route::get('/operation/create/', function () {
+//     $record_timing = request('record_timing');
+//     return view('operation.create',['record_timing' => $record_timing]);
+//  });
 
 // Route::get('index', 'ProjectController@index')->name('project.index');
 // Route::get('create', 'ProjectController@create')->name('project.create');
-// Route::post('store', 'ProjectController@store')->name('project.store');
 
 // Route::post('record_timing', 'RecordTimingController@create')->name('record_timing.create');

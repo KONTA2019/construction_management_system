@@ -64,9 +64,10 @@
     工種区分の登録
 </div>
 
-<form method="POST" action="{{route('operation.store')}}" >
+<form method="POST"  action="{{route('operation.store')}}">
 @csrf
-<Input  type="hidden"  name="record_timing_id" value="{{$record_timing->id}}" >
+<h1>{{ $record_timing }}</h1>
+<!-- <Input  type="hidden"  name="record_timing_id" value="{{ $record_timing ?? ''}}" > -->
 
 
 <div class="thirdregistration__body">
@@ -140,9 +141,12 @@
 <br>備考(1,000文字以下)<br>
 <textarea name="memo" row="20" cols=”50″ wrap=”hard” class="memo" placeholder="（使用方法）必要に応じて自由に記述してください。"></textarea>
 
-<button type="submit" class="btn btn-primary">
+<button type="submit" class="btn btn-primary" >
     登録
 </button>
+<a href="btn btn-primary"  action="{{route('home')}}"> 
+    トップページにもどる
+</a>
 </form>
 
 

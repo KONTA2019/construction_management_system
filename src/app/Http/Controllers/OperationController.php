@@ -10,7 +10,11 @@ class OperationController extends Controller
 {
     public function create()
      {
-          return view('operation.create');
+          // $operation = new Operation;
+          // $operation = $reocord_timing;
+          // dd($operation);
+          $record_timing = request('record_timing');
+          return view('operation.create',['record_timing' => $record_timing]);
      }
  
      // postでprojects/にアクセスされた場合
@@ -24,7 +28,8 @@ class OperationController extends Controller
           $operation->forth_operation_class = $request->input('forth_operation_class');
           $operation->fifth_operation_class = $request->input('fifth_operation_class');
           $operation->sixth_operation_class = $request->input('sixth_operation_class');
-          $operation->record_timing_id = $request->input('record_timing_id');
+          
+          // $operation->record_timing_id = $request->input('record_timing_id');
 
           $operation->kanni_keisan = $request->input('kanni_keisan');
           $operation->syousai_keisan = $request->input('syousai_keisan');
@@ -43,9 +48,13 @@ class OperationController extends Controller
           $operation->memo = $request->input('memo');
 
           $operation->tanni = $request->input('tanni');
-          // dd($operation);
+          dd($operation);
           $operation->save();
 
           return view('home');
+          // return Redirect::back();
      }
+
+
+
 }

@@ -66,6 +66,7 @@
     当初・変更区分を登録
 <form method="POST" action="{{route('record_timing.store')}}">
 @csrf
+
 <Input  type="hidden"  name="project_id" value="{{$project->id}}" >
 <br>当初か変更か<br>
 <select name="specific" >
