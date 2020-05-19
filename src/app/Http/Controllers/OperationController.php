@@ -14,6 +14,15 @@ class OperationController extends Controller
           // $operation = $reocord_timing;
           // dd($operation);
           $record_timing = request('record_timing');
+
+
+
+          // if(isset(session('record_timing'))){
+          //      $record_timing = session('record_timing');
+          //  } else {
+          //      $record_timing = $request->input('record_timing');
+          //  };
+
           return view('operation.create',['record_timing' => $record_timing]);
      }
  
@@ -29,7 +38,7 @@ class OperationController extends Controller
           $operation->fifth_operation_class = $request->input('fifth_operation_class');
           $operation->sixth_operation_class = $request->input('sixth_operation_class');
           
-          // $operation->record_timing_id = $request->input('record_timing_id');
+          $operation->record_timing_id = $request->input('record_timing_id');
 
           $operation->kanni_keisan = $request->input('kanni_keisan');
           $operation->syousai_keisan = $request->input('syousai_keisan');
@@ -48,10 +57,20 @@ class OperationController extends Controller
           $operation->memo = $request->input('memo');
 
           $operation->tanni = $request->input('tanni');
-          dd($operation);
+          // dd($operation);
           $operation->save();
 
-          return view('home');
+
+          // 前画面のURLを取得
+          $previousUrl = app('url')->previous();
+          return redirect()->to($previousUrl)->withInput();
+
+          // return redirect()->to($previousUrl.'?'. http_build_query(['record_timing'=>$operation['record_timing_id']]))->withInput();
+
+          // return redirect()->back()->withInput()->with('record_timing', $record_timing);
+
+
+          // return view('home');
           // return Redirect::back();
      }
 

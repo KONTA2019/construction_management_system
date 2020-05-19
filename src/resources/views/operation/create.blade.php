@@ -66,8 +66,8 @@
 
 <form method="POST"  action="{{route('operation.store')}}">
 @csrf
-<h1>{{ $record_timing }}</h1>
-<!-- <Input  type="hidden"  name="record_timing_id" value="{{ $record_timing ?? ''}}" > -->
+
+<Input  type= "hidden"  name= "record_timing_id" value = {{ $record_timing }} >
 
 
 <div class="thirdregistration__body">
