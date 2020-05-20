@@ -15,6 +15,6 @@ class Operation extends Model
 
     public function record_timing()
     {
-        return $this->belongsTo('App\Models\RecordTiming','record_timing');
+        return $this->belongsTo('App\Models\RecordTiming','record_timing_id');
     }
 }

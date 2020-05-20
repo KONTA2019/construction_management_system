@@ -72,6 +72,7 @@
         <div class="card mb-4">
                 <div class="card-header">
                 <a href="{{route('operation.create',['record_timing' => $record_timing->id])}}" >
+                <!-- <a href="{{route('operation.create',['record_timing' => $record_timing->id],['project_id' => $record_timing->project_id])}}" > -->
                     {{ $record_timing->project->projectname }}  {{ $record_timing->specific }}  {{ $record_timing->created_at->format('Y年n月d日H時i分') }}に編集
                 </a>
                 </div>

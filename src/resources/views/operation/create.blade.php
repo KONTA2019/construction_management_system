@@ -1,5 +1,5 @@
 <body>
-<link rel="stylesheet" href="{{ asset('css/operation-create1.css') }}">
+<link rel="stylesheet" href="{{ asset('css/operation-create2.css') }}">
     <div class="header-form">
         <div class="header-form__title">
             <a href="{{route('welcome')}}" class="header-form__title_chr">
@@ -61,7 +61,83 @@
     
 
 <div class="thirdregistration__title">
-    工種区分の登録
+    数量総括表プレビュー(並べ替えはExcelシート出力時)
+</div>
+
+<div class="soukatsu">
+    <div class="soukatsu__kousyu__title">
+    工種&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
+    <div class="soukatsu__keisan__title">
+        計算式
+    </div>
+    <div class="soukatsu__tanni__title">
+        単位
+    </div>
+    <div class="soukatsu__sekouryou__title">
+        施工量
+    </div>
+    <div class="soukatsu__memo__title">
+        備考
+    </div>
+</div>
+
+@foreach ($operations ?? '' as $operation)
+<div class="soukatsu">
+    <div class="soukatsu__kousyu">
+        <p>
+        {{ $operation->first_operation_class }}
+        </p>
+        <p>
+            &nbsp;&nbsp;{{ $operation->second_operation_class }}
+        </p>
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;{{ $operation->third_operation_class }}
+        </p>
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $operation->forth_operation_class }}
+        </p>
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $operation->fifth_operation_class }}
+        </p>
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $operation->sixth_operation_class }}
+        </p>
+    </div>
+    <div class="soukatsu__keisan">
+        <pre>{{ $operation->kanni_keisan }}</pre>
+    </div>
+    <div class="soukatsu__tanni">
+        {{ $operation->tanni }}
+    </div>
+    <div class="soukatsu__sekouryou">
+        <div class="soukatsu__sekouryou__detail">
+            <ul>
+                <li>{{ $operation->first_amount_name }}</li>
+                <li>{{ $operation->second_amount_name }}</li>
+                <li>{{ $operation->third_amount_name }}</li>
+                <li>{{ $operation->forth_amount_name }}</li>
+            </ul>
+        </div>
+        <div class="soukatsu__sekouryou__detail">
+        <ul>
+                <li>{{ $operation->first_amount }}</li>
+                <li>{{ $operation->second_amount }}</li>
+                <li>{{ $operation->third_amount }}</li>
+                <li>{{ $operation->forth_amount }}</li>
+            </ul>
+        </div>
+    </div>
+    <div class="soukatsu__memo">
+        <pre>{{ $operation->meomo }}</pre>
+    </div>
+</div>
+
+        <!-- {{ $operation->reason_title }}  {{ $operation->reason_text }}  {{ $operation->syousai_keisan }} -->
+@endforeach
+
+<div class="thirdregistration__title">
+    <br>作業内容の登録
 </div>
 
 <form method="POST"  action="{{route('operation.store')}}">
@@ -145,7 +221,7 @@
     登録
 </button>
 <a href="btn btn-primary"  action="{{route('home')}}"> 
-    トップページにもどる
+    <br>トップページにもどる
 </a>
 </form>
 

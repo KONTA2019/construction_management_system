@@ -1,3 +1,7 @@
+html{
+  width:100%;
+}
+
 .row_justify-content-center{
   text-align: center;
   justify-content: center;
@@ -5,6 +9,8 @@
 
 .thirdregistration__title{
   text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 /* .firstregistration__body{
@@ -85,6 +91,80 @@
 .card{
   text-align: center;
 }
+
+
+.soukatsu{
+  display:flex;
+  justify-content: center;
+  
+  border-bottom: 1px solid black;
+}
+
+.soukatsu__kousyu__title{
+width:20vw;
+border-right: 1px solid black;
+text-align: center;
+border-top: 1px solid black;
+padding-left: 24px;
+}
+
+.soukatsu__keisan__title{
+width: 35vw;
+border-right: 1px solid black;
+text-align: center;
+border-top: 1px solid black;
+}
+
+.soukatsu__tanni__title{
+width: 5vw;
+border-right: 1px solid black;
+text-align: center;
+border-top: 1px solid black;
+}
+
+.soukatsu__sekouryou__title{
+width: 30vw;
+border-right: 1px solid black;
+text-align: center;
+border-top: 1px solid black;
+}
+
+.soukatsu__memo__title{
+width: 10vw;
+text-align: center;
+border-top: 1px solid black;
+}
+
+.soukatsu__kousyu{
+  width:20vw;
+  border-right: 1px solid black;
+  padding-left: 24px;
+  }
+  
+  .soukatsu__keisan{
+  width: 35vw;
+  border-right: 1px solid black;
+
+  }
+  
+  .soukatsu__tanni{
+  width: 5vw;
+  border-right: 1px solid black;
+  text-align: center;
+  }
+  
+  .soukatsu__sekouryou{
+  width: 30vw;
+  border-right: 1px solid black;
+  text-align: center;
+  }
+  
+  .soukatsu__memo{
+  width: 10vw;
+  text-align: center;
+  }
+
+
 
 
 

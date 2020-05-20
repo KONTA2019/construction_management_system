@@ -13,8 +13,13 @@ class OperationController extends Controller
           // $operation = new Operation;
           // $operation = $reocord_timing;
           // dd($operation);
-          $record_timing = request('record_timing');
 
+          $record_timing = request('record_timing');
+          // $project_id = request('project_id');
+
+          $operations = Operation::with('record_timing.project')->where('record_timing_id',$record_timing)->get();
+
+          
 
 
           // if(isset(session('record_timing'))){
@@ -22,8 +27,9 @@ class OperationController extends Controller
           //  } else {
           //      $record_timing = $request->input('record_timing');
           //  };
+          return view('operation.create',['operations' => $operations],['record_timing' => $record_timing]);
 
-          return view('operation.create',['record_timing' => $record_timing]);
+          // return view('operation.create',['operations' => $operations],['record_timing' => $record_timing],['project_id' => $project_id]);
      }
  
      // postでprojects/にアクセスされた場合
