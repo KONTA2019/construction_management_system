@@ -111,22 +111,22 @@
         {{ $operation->tanni }}
     </div>
     <div class="soukatsu__sekouryou">
-        <div class="soukatsu__sekouryou__detail">
-            <ul>
-                <li>{{ $operation->first_amount_name }}</li>
-                <li>{{ $operation->second_amount_name }}</li>
-                <li>{{ $operation->third_amount_name }}</li>
-                <li>{{ $operation->forth_amount_name }}</li>
+        <!-- <div class="soukatsu__sekouryou__detail"> -->
+            <ul class="soukatsu__sekouryou__detail">
+                <li>{{ $operation->first_amount_name }}<br>{{ $operation->first_amount }}</li>
+                <li>{{ $operation->second_amount_name }}<br>{{ $operation->second_amount }}</li>
+                <li>{{ $operation->third_amount_name }}<br>{{ $operation->third_amount }}</li>
+                <li>{{ $operation->forth_amount_name }}<br>{{ $operation->forth_amount }}</li>
             </ul>
-        </div>
-        <div class="soukatsu__sekouryou__detail">
-        <ul>
+        <!-- </div> -->
+        <!-- <div class="soukatsu__sekouryou__detail"> -->
+            <!-- <ul class="soukatsu__sekouryou__detail">
                 <li>{{ $operation->first_amount }}</li>
                 <li>{{ $operation->second_amount }}</li>
                 <li>{{ $operation->third_amount }}</li>
                 <li>{{ $operation->forth_amount }}</li>
-            </ul>
-        </div>
+            </ul> -->
+        <!-- </div> -->
     </div>
     <div class="soukatsu__memo">
         <pre>{{ $operation->meomo }}</pre>
@@ -181,26 +181,84 @@
 <div class = "sekouryou">
 <div class = "sekouryou1">
 <br>施工量名（１）<br>
-<input type="text" name="first_amount_name" placeholder="例）設計数量">
+<input type="text" name="first_amount_name" list="sekouryou-syurui" placeholder="テキスト入力" autocomplete="off">
+<datalist id="sekouryou-syurui">
+    <option value="設計数量">設計数量</option>
+    <option value="地山量">地山量</option>
+    <option value="ほぐし量">ほぐし量</option>
+    <option value="締固め量">締固め量</option>
+</datalist>
+<!-- <select name="first_amount_name" >
+<option value="">選択してください</option>
+<option value="設計数量">設計数量</option>
+<option value="地山量">地山量</option>
+<option value="ほぐし量">ほぐし量</option>
+<option value="締固め量">締固め量</option>
+</select> -->
+<!-- <div class="tyuusyaku">
+※選択肢がない場合は下記に記入してください<br>
+</div>
+<input type="text" name="first_amount_name" placeholder="例）1工区"> -->
+<div class="sekou-suuzi">
 <br>施工量（１）<br>
+</div>
 <input type="number" name="first_amount" >
 </div>
 <div class = "sekouryou2">
 <br>施工量名（２）<br>
-<input type="text" name="second_amount_name" placeholder="例）地山量">
+<input type="text" name="second_amount_name" list="sekouryou-syurui" placeholder="テキスト入力" autocomplete="off">
+<!-- <select name="second_amount_name" >
+<option value="">選択してください</option>
+<option value="設計数量">設計数量</option>
+<option value="地山量">地山量</option>
+<option value="ほぐし量">ほぐし量</option>
+<option value="締固め量">締固め量</option>
+</select>
+<div class="tyuusyaku">
+※選択肢がない場合は下記に記入してください<br>
+</div> -->
+<!-- <input type="text" name="second_amount_name" placeholder="例）2工区"> -->
+<div class="sekou-suuzi">
 <br>施工量（２）<br>
+</div>
 <input type="number" name="second_amount">
 </div>
 <div class = "sekouryou3">
 <br>施工量名（３）<br>
-<input type="text" name="third_amount_name" placeholder="例）ほぐし量">
+<input type="text" name="third_amount_name" list="sekouryou-syurui" placeholder="テキスト入力" autocomplete="off">
+<!-- <select name="third_amount_name" >
+<option value="">選択してください</option>
+<option value="設計数量">設計数量</option>
+<option value="地山量">地山量</option>
+<option value="ほぐし量">ほぐし量</option>
+<option value="締固め量">締固め量</option>
+</select>
+<div class="tyuusyaku">
+※選択肢がない場合は下記に記入してください<br>
+</div>
+<input type="text" name="third_amount_name" placeholder="例）3工区"> -->
+<div class="sekou-suuzi">
 <br>施工量（３）<br>
+</div>
 <input type="number" name="third_amount">
 </div>
 <div class = "sekouryou4">
 <br>施工量名（４）<br>
-<input type="text" name="forth_amount_name" placeholder="例）締固め量">
+<input type="text" name="forth_amount_name" list="sekouryou-syurui" placeholder="テキスト入力" autocomplete="off">
+<!-- <select name="forth_amount_name" >
+<option value="">選択してください</option>
+<option value="設計数量">設計数量</option>
+<option value="地山量">地山量</option>
+<option value="ほぐし量">ほぐし量</option>
+<option value="締固め量">締固め量</option>
+</select>
+<div class="tyuusyaku">
+※選択肢がない場合は下記に記入してください<br>
+</div>
+<input type="text" name="forth_amount_name" placeholder="例）4工区"> -->
+<div class="sekou-suuzi">
 <br>施工量（４）<br>
+</div>
 <input type="number" name="forth_amount">
 </div>
 </div>

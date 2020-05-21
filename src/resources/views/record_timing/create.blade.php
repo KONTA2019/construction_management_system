@@ -70,7 +70,7 @@
 <Input  type="hidden"  name="project_id" value="{{$project->id}}" >
 <br>当初か変更か<br>
 <select name="specific" >
-<option valu="">選択してください</option>
+<option value="">選択してください</option>
 <option value="当初">当初</option>
 <option value="変更（１回目）">変更（１回目）</option>
 <option value="変更（２回目）">変更（２回目）</option>
