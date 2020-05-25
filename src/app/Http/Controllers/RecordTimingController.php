@@ -77,10 +77,36 @@ class RecordTimingController extends Controller
 
      }
 
-     // public function show($id)
-     // {
-     //     $record_timing = RecordTiming::with('operations')->find($id);
+     public function show($id)
+     {
+     //     $record_timing = array();
+         $record_timing = RecordTiming::with('operations')->find($id);
+         
+     // 施工の種類のより細かいもので、一致するもの同士が集まるように並べ替え
+          $sort_keys = array(); 
+         foreach($record_timing->operations as $key => $value)
+          {
+          $sort_keys[$key] = $value['first_operation_class'];
+          };
+          if(is_array($record_timing)){ 
+          array_multisort($sort_keys, SORT_STRING, $record_timing);}
+
+          dd($record_timing);
+     //     施工量名を重複しないで表示するために配列を作成しています
+         $sekou_syurui = [];
+         foreach ($record_timing->operations as $operation){
+               $sekou_syurui[] = $operation->first_amount_name;
+               $sekou_syurui[] = $operation->second_amount_name;
+               $sekou_syurui[] = $operation->third_amount_name;
+               $sekou_syurui[] = $operation->forth_amount_name;
+         };
+         $sekouryou_title_before = array_unique($sekou_syurui);
+         $sekouryou_titles = array_diff($sekouryou_title_before, array(null));
+
+         
+         
      //     return $record_timing->toArray();
-     // }
+          return view('record_timing.show',['record_timing' => $record_timing],['sekouryou_titles' => $sekouryou_titles]);
+     }
 
 }

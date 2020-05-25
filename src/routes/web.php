@@ -21,7 +21,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 // Route::post('/home', 'HomeController@index')->name('home');
-
+// Route::put('/home', 'HomeController@index')->name('home');
 
 
 Route::get('/folders/{id}/tasks', 'TaskController@index')->name('tasks.index');
