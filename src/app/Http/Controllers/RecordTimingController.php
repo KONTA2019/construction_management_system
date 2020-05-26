@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\RecordTiming;
 use App\Models\Project;
+use App\Models\Operation;
 
 class RecordTimingController extends Controller
 {
@@ -79,22 +80,19 @@ class RecordTimingController extends Controller
 
      public function show($id)
      {
-     //     $record_timing = array();
-         $record_timing = RecordTiming::with('operations')->find($id);
-         
+     // 工事名呼び出し用の変数
+          $kouzimeiyou = RecordTiming::with('project')->where('id',$id)->first();
+          // return $kouzimeiyou->toArray();
+     
      // 施工の種類のより細かいもので、一致するもの同士が集まるように並べ替え
-          $sort_keys = array(); 
-         foreach($record_timing->operations as $key => $value)
-          {
-          $sort_keys[$key] = $value['first_operation_class'];
-          };
-          if(is_array($record_timing)){ 
-          array_multisort($sort_keys, SORT_STRING, $record_timing);}
+          $operations = Operation::where('record_timing_id',$id)->orderBy('first_operation_class','desc')
+          ->orderBy('second_operation_class','desc')->orderBy('third_operation_class','desc')->orderBy('forth_operation_class','desc')
+          ->orderBy('fifth_operation_class','desc')->orderBy('sixth_operation_class','desc')->get();
 
-          dd($record_timing);
-     //     施工量名を重複しないで表示するために配列を作成しています
+          
+     // 施工量名を重複しないで表示するために配列を作成しています
          $sekou_syurui = [];
-         foreach ($record_timing->operations as $operation){
+         foreach ($operations as $operation){
                $sekou_syurui[] = $operation->first_amount_name;
                $sekou_syurui[] = $operation->second_amount_name;
                $sekou_syurui[] = $operation->third_amount_name;
@@ -106,7 +104,7 @@ class RecordTimingController extends Controller
          
          
      //     return $record_timing->toArray();
-          return view('record_timing.show',['record_timing' => $record_timing],['sekouryou_titles' => $sekouryou_titles]);
+          return view('record_timing.show',['operations' => $operations,'sekouryou_titles' => $sekouryou_titles,'kouzimeiyou'=>$kouzimeiyou]);
      }
 
 }

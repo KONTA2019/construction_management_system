@@ -1,5 +1,5 @@
 <body>
-<link rel="stylesheet" href="{{ asset('css/operation-show4.css') }}">
+<link rel="stylesheet" href="{{ asset('css/operation-show5.css') }}">
   <div class="header-form">
     <div class="header-form__title">
       <a href="{{route('welcome')}}" class="header-form__title_chr">
@@ -59,7 +59,7 @@
   </div>
 
   <div class="thirdregistration__title">
-    数量総括表プレビュー
+    数量総括表プレビュー ({{$kouzimeiyou->project->projectname}} {{$kouzimeiyou->specific}})
   </div>
 
   <div class="yokonarabi">
@@ -68,7 +68,7 @@
       <div class="soukatsu__kousyu__title">
         工種&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       </div>
-      @foreach ($record_timing->operations as $operation)
+      @foreach ($operations as $operation)
         <div class="soukatsu__kousyu">
           <p>
           {{ $operation->first_operation_class }}
@@ -96,7 +96,7 @@
       <div class="soukatsu__keisan__title">
         計算式
       </div>
-      @foreach ($record_timing->operations as $operation)
+      @foreach ($operations as $operation)
         <div class="soukatsu__keisan">
           <pre>{{ $operation->kanni_keisan }}</pre>
         </div>
@@ -107,7 +107,7 @@
       <div class="soukatsu__tanni__title">
         単位
       </div>
-      @foreach ($record_timing->operations as $operation)
+      @foreach ($operations as $operation)
         <div class="soukatsu__tanni">
           {{ $operation->tanni }}
         </div>
@@ -122,7 +122,7 @@
           </div>
         @endforeach
       </div>
-      @foreach ($record_timing->operations as $operation)
+      @foreach ($operations as $operation)
         <div class="soukatsu__sekouryou">
           <ul class="soukatsu__sekouryou__detail">
             @foreach ($sekouryou_titles as $sekouryou_title)
@@ -157,7 +157,7 @@
       <div class="soukatsu__memo__title">
         備考
       </div>
-      @foreach ($record_timing->operations as $operation)
+      @foreach ($operations as $operation)
         <div class="soukatsu__memo">
           <p>{{ $operation->meomo }}</p>
         </div>
