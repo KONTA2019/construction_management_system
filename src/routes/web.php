@@ -26,6 +26,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/folders/{id}/tasks', 'TaskController@index')->name('tasks.index');
 
+
+Route::get('/record_timing/{id}/syousai_matome', 'RecordTimingController@syousai_matome')->name('record_timing.syousai_matome');
+Route::get('/record_timing/{id}/syousai_keisan', 'RecordTimingController@syousai_keisan')->name('record_timing.syousai_keisan');
+
+
 Route::resource('project', 'ProjectController');
 Route::resource('record_timing', 'RecordTimingController');
 Route::resource('operation', 'OperationController',['except' => ['show']]);

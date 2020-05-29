@@ -1,5 +1,5 @@
 <body>
-<link rel="stylesheet" href="{{ asset('css/operation-create3.css') }}">
+<link rel="stylesheet" href="{{ asset('css/operation-create4.css') }}">
     <div class="header-form">
         <div class="header-form__title">
             <a href="{{route('welcome')}}" class="header-form__title_chr">
@@ -61,7 +61,7 @@
     
 
     <div class="thirdregistration__title">
-        数量総括表プレビュー(並べ替えはExcelシート出力時)
+        登録概要確認（内容追加は下までスクロール）
     </div>
 
     <div class="soukatsu">
@@ -69,7 +69,7 @@
         工種&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </div>
         <div class="soukatsu__keisan__title">
-            計算式
+            簡易計算式
         </div>
         <div class="soukatsu__tanni__title">
             単位

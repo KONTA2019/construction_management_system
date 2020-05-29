@@ -139,6 +139,8 @@ border-top: 0.5px solid black;
   width: 35vw;
   border-right: 0.5px solid black;
   font-size: 12px;
+  overflow-x: auto;
+  height:120px;
   }
 
   .soukatsu__keisan pre {
@@ -181,6 +183,7 @@ border-top: 0.5px solid black;
   width: 10vw;
   text-align: center;
   font-size: 12px;
+  overflow-x: auto;
   }
 
   .soukatsu__memo pre {
