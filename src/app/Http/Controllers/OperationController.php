@@ -10,7 +10,26 @@ class OperationController extends Controller
 {
     public function create()
      {
-          return view('operation.create');
+          // $operation = new Operation;
+          // $operation = $reocord_timing;
+          // dd($operation);
+
+          $record_timing = request('record_timing');
+          // $project_id = request('project_id');
+
+          $operations = Operation::with('record_timing.project')->where('record_timing_id',$record_timing)->get();
+
+          
+
+
+          // if(isset(session('record_timing'))){
+          //      $record_timing = session('record_timing');
+          //  } else {
+          //      $record_timing = $request->input('record_timing');
+          //  };
+          return view('operation.create',['operations' => $operations],['record_timing' => $record_timing]);
+
+          // return view('operation.create',['operations' => $operations],['record_timing' => $record_timing],['project_id' => $project_id]);
      }
  
      // postでprojects/にアクセスされた場合
@@ -24,10 +43,11 @@ class OperationController extends Controller
           $operation->forth_operation_class = $request->input('forth_operation_class');
           $operation->fifth_operation_class = $request->input('fifth_operation_class');
           $operation->sixth_operation_class = $request->input('sixth_operation_class');
+          
           $operation->record_timing_id = $request->input('record_timing_id');
 
-          $operation->record_timing_id = $request->input('kanni_keisan');
-          $operation->record_timing_id = $request->input('syousai_keisan');
+          $operation->kanni_keisan = $request->input('kanni_keisan');
+          $operation->syousai_keisan = $request->input('syousai_keisan');
 
           $operation->first_amount_name = $request->input('first_amount_name');
           $operation->first_amount = $request->input('first_amount');
@@ -40,10 +60,26 @@ class OperationController extends Controller
           
           $operation->reason_title = $request->input('reason_title');
           $operation->reason_text = $request->input('reason_text');
-          $operation->forth_amount = $request->input('memo');
-                    
+          $operation->memo = $request->input('memo');
+
+          $operation->tanni = $request->input('tanni');
+          // dd($operation);
           $operation->save();
 
-          return view('home');
+
+          // 前画面のURLを取得
+          $previousUrl = app('url')->previous();
+          return redirect()->to($previousUrl)->withInput();
+
+          // return redirect()->to($previousUrl.'?'. http_build_query(['record_timing'=>$operation['record_timing_id']]))->withInput();
+
+          // return redirect()->back()->withInput()->with('record_timing', $record_timing);
+
+
+          // return view('home');
+          // return Redirect::back();
      }
+
+
+
 }

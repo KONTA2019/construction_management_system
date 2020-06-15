@@ -1,0 +1,447 @@
+.row_justify-content-center{
+  text-align: center;
+  justify-content: center;
+}
+
+.secondregistration__body{
+  text-align: center;
+}
+
+.secondregistration__body{
+  display: block;
+  width: 80vw;
+  max-width: 600px;
+  margin:0 auto;
+  background-color: f5f5f5;
+  margin-top: 40px;
+  border: 1px solid rgb(216, 219, 223);
+}
+
+input{
+  width:64vw;
+  max-width: 480px;
+}
+
+select{
+  width: 80%;
+  height:30px;
+}
+
+
+.form-group.row{
+  margin-top: 10px;
+}
+
+.btn-primary{
+  background-color: rgb(102, 181, 245);
+  color: white;
+  width:80%;
+  height: 30px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing:7px;
+}
+
+
+.btn-link{
+  font-size: 12px;
+}
+
+
+.card{
+  text-align: center;
+}
+
+
+
+
+  /*!
+ * YUI 3.5.0 - reset.css (http://developer.yahoo.com/yui/3/cssreset/)
+ * http://cssreset.com
+ * Copyright 2012 Yahoo! Inc. All rights reserved.
+ * http://yuilibrary.com/license/
+ */
+
+/*
+    TODO will need to remove settings on HTML since we can't namespace it.
+    TODO with the prefix, should I group by selector or property for weight savings?
+*/
+
+/*
+  TODO remove settings on BODY since we can't namespace it.
+*/
+
+/*
+  TODO test putting a class on HEAD.
+      - Fails on FF.
+*/
+
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  text-align: inherit;
+  display: inherit;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+fieldset,
+img {
+  border: 0;
+}
+
+/*
+  TODO think about hanlding inheritence differently, maybe letting IE6 fail a bit...
+*/
+
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+strong,
+th,
+var {
+  font-style: normal;
+  font-weight: normal;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+caption,
+th {
+  text-align: left;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+q:before,
+q:after {
+  content: '';
+}
+
+abbr,
+acronym {
+  border: 0;
+  font-variant: normal;
+}
+
+/* to preserve line-height and selector appearance */
+
+sup {
+  vertical-align: text-top;
+}
+
+sub {
+  vertical-align: text-bottom;
+}
+
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/*to enable resizing for IE*/
+
+input,
+textarea,
+select {
+  *font-size: 100%;
+}
+
+/*because legend doesn't inherit in IE */
+
+legend {
+  color: #000;
+}
+
+/* YUI CSS Detection Stamp */
+
+#yui3-css-stamp.cssreset {
+  display: none;
+}
+
+title {
+  display: inherit;
+}
+
+a:-webkit-any-link {
+  text-decoration: inherit;
+}
+
+
+
+
+
+
+
+/* ヘッダー */
+
+
+.header-form{
+  width:100vw;
+  max-width: 100%;
+  display:inline-block;
+  justify-content: space-between;
+  height: 30px;
+  }
+  
+  .header-form__title{
+    padding-left:20px;
+    font-size: 12px;
+    color: black;
+  }
+  
+  .header-form__title__chr{
+    text-decoration: none;
+  }
+  
+  .header-form__nav{
+    display:flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+  }
+  
+  .header-form__nav__left{
+    text-decoration: none;
+    margin-right: 20px;
+  }
+  
+  .header-form__nave__right{
+    text-decoration: none;
+  }
+
+  a:link {color:rgb(78, 77, 76);} /*未訪問のリンクの色*/
+  a:visited {color:rgb(78, 77, 76);} /*訪問済みのリンクの色*/
+  a:hover {color:rgb(209, 139, 9);} /*カーソルが乗っているリンクの色*/
+  /* a:active {color:rgb(209, 139, 9);} クリック中のリンクの色 */
+
+
+.header-form__nav__left{
+  font-size: 6px;
+}
+
+.header-form__nav__right{
+  font-size: 6px;
+}
+
+.title{
+  line-height: 30px;
+  height:30px;
+  background-color: rgb(55, 165, 238);
+  text-align: center;
+  display: inline-block;
+  width:100vw;
+  font-size: 12px;
+}
+
+.title h2{
+  letter-spacing: 6px;
+  color: white;
+  font-family: 'Open Sans',"メイリオ", "MS PGothic", Osaka, sans-serif;
+  box-sizing: border-box;
+}
+
+
+.nav_in{
+  height: 30px;
+  line-height: 30px;
+  padding-top: 0px;
+}
+
+.drop{
+  display:inline-block;
+  vertical-align: middle;
+  width: 100vw;
+  min-width: 70vw;
+}
+
+.nav01{
+  width: calc( 90% / 6); 
+  border-right: 0.5px solid rgb(216, 219, 223);
+  text-align: center;
+  box-sizing: border-box;
+  font-size: 6px;
+}
+
+.nav02{
+  width: calc( 90% / 6); 
+  border-right: 0.5px solid rgb(216, 219, 223);
+  text-align: center;
+  box-sizing: border-box;
+  font-size: 6px;
+}
+
+.nav03{
+  width: calc( 90% / 6); 
+  border-right: 0.5px solid rgb(216, 219, 223);
+  text-align: center;
+  box-sizing: border-box;
+  font-size: 6px;
+}
+
+.nav04{
+  width: calc( 90% / 6); 
+  border-right: 0.5px solid rgb(216, 219, 223);
+  text-align: center;
+  box-sizing: border-box;
+  font-size: 6px;
+}
+
+.nav05{
+  width: calc( 90% / 6); 
+  border-right: 0.5px solid rgb(216, 219, 223);
+  text-align: center;
+  box-sizing: border-box;
+  font-size: 6px;
+}
+
+.nav06{
+  width: calc( 105% / 6); 
+  text-align: center;
+  box-sizing: border-box;
+  font-size: 6px;
+}
+
+@media (min-width: 640px) {
+  .title{
+    line-height: 40px;
+    height: 40px;
+    font-size:calc(12px + ((1vw - 6.4px)*2));
+    letter-spacing: calc( 6px+ (1vw - 6.4px));
+  }
+ 
+  .header-form{
+    height: calc(30px + ((1vw - 6.4px)*3.57));
+  }
+  .header-form__title{
+    font-size:calc(12px + ((1vw - 6.4px)*2));
+  }
+  .header-form__nav__left{
+    font-size: calc(8px + ((1vw - 6.4px)*1.5));
+  }
+  .header-form__nav__right{
+    font-size: calc(8px + ((1vw - 6.4px)*1.5));
+  }
+  .nav_in{
+    padding-top: calc(0px + ((1vw - 6.4px)*1.785));
+  }
+  .nav01{
+    font-size: calc(8px + ((1vw - 6.4px)*1.5));
+    border-right: calc(0.5px + ((1vw - 6.4px)*0.09)) solid rgb(216, 219, 223);
+  }
+  .nav02{
+    font-size: calc(8px + ((1vw - 6.4px)*1.5));
+    border-right: calc(0.5px + ((1vw - 6.4px)*0.09)) solid rgb(216, 219, 223);
+  }
+  .nav03{
+    font-size: calc(8px + ((1vw - 6.4px)*1.5));
+    border-right: calc(0.5px + ((1vw - 6.4px)*0.09)) solid rgb(216, 219, 223);
+  }
+  .nav04{
+    font-size: calc(8px + ((1vw - 6.4px)*1.5));
+    border-right: calc(0.5px + ((1vw - 6.4px)*0.09)) solid rgb(216, 219, 223);
+  }
+  .nav05{
+    font-size: calc(8px + ((1vw - 6.4px)*1.5));
+    border-right: calc(0.5px + ((1vw - 6.4px)*0.09)) solid rgb(216, 219, 223);
+  }
+  .nav06{
+    font-size: calc(8px + ((1vw - 6.4px)*1.5));
+  }
+}
+@media (min-width: 1200px) {
+  .title{
+    line-height: 50px;
+    height:50px;
+    font-size: 20px;
+    letter-spacing: 12px;
+  }
+
+  .header-form{
+    height: 50px;
+  }
+  .header-form__title{
+    font-size:24px;
+  }
+  .header-form__nav__left{
+    font-size: 16px;
+  }
+  .header-form__nav__right{
+    font-size: 16px;
+  }
+  .nav_in{
+    padding-top: 10px;
+  }
+  .nav01{
+    font-size: 16px;
+    border-right: 1px solid rgb(216, 219, 223);
+  }
+  .nav02{
+    font-size: 16px;
+    border-right: 1px solid rgb(216, 219, 223);
+  }
+  .nav03{
+    font-size: 16px;
+    border-right: 1px solid rgb(216, 219, 223);
+  }
+  .nav04{
+    font-size: 16px;
+    border-right: 1px solid rgb(216, 219, 223);
+  }
+  .nav05{
+    font-size: 16px;
+    border-right: 1px solid rgb(216, 219, 223);
+  }
+  .nav06{
+    font-size: 16px;
+  
+  }
+}

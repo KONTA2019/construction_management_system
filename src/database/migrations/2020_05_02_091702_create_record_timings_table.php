@@ -15,11 +15,13 @@ class CreateRecordTimingsTable extends Migration
     {
         Schema::create('record_timings', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('specific');
-            $table->string('span');
-            $table->string('period');
+            $table->string('specific')->nullable();
+            $table->string('span')->nullable();
+            $table->string('period')->nullable();
             $table->integer('project_id')->unsigned();
             $table->foreign('project_id')->references('id')->on('projects')->nullable()->onDelete('cascade');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('user_id')->on('projects')->nullable()->onDelete('cascade');
             $table->timestamps();
         });
     }

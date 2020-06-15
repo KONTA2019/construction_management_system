@@ -15,24 +15,35 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 // Route::post('/home', 'HomeController@index')->name('home');
-
+// Route::put('/home', 'HomeController@index')->name('home');
 
 
 Route::get('/folders/{id}/tasks', 'TaskController@index')->name('tasks.index');
 
+
+Route::get('/record_timing/{id}/syousai_matome', 'RecordTimingController@syousai_matome')->name('record_timing.syousai_matome');
+Route::get('/record_timing/{id}/syousai_keisan', 'RecordTimingController@syousai_keisan')->name('record_timing.syousai_keisan');
+
+// /{third_operation_class_id}
+
 Route::resource('project', 'ProjectController');
 Route::resource('record_timing', 'RecordTimingController');
-Route::resource('operation', 'OperationController');
+Route::resource('operation', 'OperationController',['except' => ['show']]);
 
+// Route::post('save', 'OperationController@save')->name('operation.save');
+// Route::post('/operation/create/{record_timing}', 'OperationController@create');
+// Route::get('/operation/create/', function () {
+//     $record_timing = request('record_timing');
+//     return view('operation.create',['record_timing' => $record_timing]);
+//  });
 
 // Route::get('index', 'ProjectController@index')->name('project.index');
 // Route::get('create', 'ProjectController@create')->name('project.create');
-// Route::post('store', 'ProjectController@store')->name('project.store');
 
 // Route::post('record_timing', 'RecordTimingController@create')->name('record_timing.create');

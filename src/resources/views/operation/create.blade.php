@@ -1,85 +1,226 @@
-<link rel="stylesheet" href="{{ asset('css/operation-create.css') }}">
-
-<div class="header-form">
-    <nav>
+<body>
+<link rel="stylesheet" href="{{ asset('css/operation-create4.css') }}">
+    <div class="header-form">
         <div class="header-form__title">
-        <a href="{{route('home')}}" class="header-form__title_chr">
-                    ConstructionManagementsystem
-        </a>
-        <div class="header-form__nav">
-            <ul>
-                <li class="header-form__nav__login">
-                    <a href="http://127.0.0.1:8080/login" class="nav-link">Login</a>
-                </li>
-                <li class="header-form__nav__register">
-                    <a href="http://127.0.0.1:8080/register" class="nav-link">Register</a>
-                </li>
+            <a href="{{route('welcome')}}" class="header-form__title_chr">
+                        ConstructionManagementSystem
+            </a>
+        </div>
+            <div>
+                <ul class="header-form__nav">
+                    @guest
+                        <li class="header-form__nav__left">
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        </li>
+                        @if (Route::has('register'))
+                            <li class="header-form__nav__right">
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            </li>
+                        @endif
+                    @else
+                        <li class="header-form__nav__left">
+                            <a class="nav-link" href="{{ route('login') }}">
+                                {{ Auth::user()->name }} <span class="caret"></span>
+                            </a>
+                        </li>
+
+                        <li class="header-form__nav__right">
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                </div>
+            </li>
+        @endguest
+            </ul>
+        </div>
+    </div>
+
+    <nav role="navigation">
+        <div class="nav_in">
+            <ul class="drop">
+                <li class="nav01"><a href="{{route('home')}}" >トップページ</a></li>
+                <li class="nav02"><a href="{{ route('project.create') }}" >工事内容登録</a></li>
+                <li class="nav03"><a href="#" >工事内容編集</a></li>
+                <li class="nav04"><a href="#" >登録内容確認</a></li>
+                <li class="nav05"><a href="#" >変更内容登録</a></li>
+                <li class="nav06"><a href="#" >他のシステムに書込み</a></li>
             </ul>
         </div>
     </nav>
-</div>
+
+    <div class = "title">
+        <h2>
+            工事内容登録
+        </h2>
+    </div>
     
 
-<div class="registration">
-    施工内容の登録
-<form method="POST" action="{{route('operation.store')}}">
-@csrf
-<Input  type="hidden"  name="record_timing_id" value="{{$record_timing->id}}" >
+    <div class="thirdregistration__title">
+        登録概要確認（内容追加は下までスクロール）
+    </div>
 
-<br>第一工種<br>
-<input type="text" name="first_operation_class">
-<br>第二工種<br>
-<input type="text" name="second_operation_class">
-<br>第三工種<br>
-<input type="text" name="third_operation_class">
-<br>第四工種<br>
-<input type="text" name="forth_operation_class">
-<br>第五工種<br>
-<input type="text" name="fifth_operation_class">
-<br>第六工種<br>
-<input type="text" name="sixth_operation_class">
+    <div class="soukatsu">
+        <div class="soukatsu__kousyu__title">
+        工種&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+        <div class="soukatsu__keisan__title">
+            簡易計算式
+        </div>
+        <div class="soukatsu__tanni__title">
+            単位
+        </div>
+        <div class="soukatsu__sekouryou__title">
+            施工量
+        </div>
+        <div class="soukatsu__memo__title">
+            備考
+        </div>
+    </div>
 
-<br>簡易数量計算<br>
-<input type="text" name="kanni_keisan">
-<br>詳細数量計算<br>
-<input type="text" name="syousai_keisan">
+    @foreach ($operations ?? '' as $operation)
+    <div class="soukatsu">
+        <div class="soukatsu__kousyu">
+            <p>
+            {{ $operation->first_operation_class }}
+            </p>
+            <p>
+                &nbsp;&nbsp;{{ $operation->second_operation_class }}
+            </p>
+            <p>
+                &nbsp;&nbsp;&nbsp;&nbsp;{{ $operation->third_operation_class }}
+            </p>
+            <p>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $operation->forth_operation_class }}
+            </p>
+            <p>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $operation->fifth_operation_class }}
+            </p>
+            <p>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $operation->sixth_operation_class }}
+            </p>
+        </div>
+        <div class="soukatsu__keisan">
+            <pre>{{ $operation->kanni_keisan }}</pre>
+        </div>
+        <div class="soukatsu__tanni">
+            {{ $operation->tanni }}
+        </div>
+        <div class="soukatsu__sekouryou">
+            <ul class="soukatsu__sekouryou__detail">
+                <li>{{ $operation->first_amount_name }}<br>{{ $operation->first_amount }}</li>
+                <li>{{ $operation->second_amount_name }}<br>{{ $operation->second_amount }}</li>
+                <li>{{ $operation->third_amount_name }}<br>{{ $operation->third_amount }}</li>
+                <li>{{ $operation->forth_amount_name }}<br>{{ $operation->forth_amount }}</li>
+            </ul>
+        </div>
+        <div class="soukatsu__memo">
+            <p>{{ $operation->meomo }}</p>
+        </div>
+    </div>
+    @endforeach
 
-<br>施工量名（１）<br>
-<input type="text" name="first_amount_name">
-<br>施工量（１）<br>
-<input type="number" name="first_amount">
-<br>施工量名（２）<br>
-<input type="text" name="second_amount_name">
-<br>施工量（２）<br>
-<input type="number" name="second_amount">
-<br>施工量名（３）<br>
-<input type="text" name="third_amount_name">
-<br>施工量（３）<br>
-<input type="number" name="third_amount">
-<br>施工量名（４）<br>
-<input type="text" name="forth_amount_name">
-<br>施工量（４）<br>
-<input type="number" name="forth_amount">
 
-<br>施工内容<br>
-<input type="text" name="reason_title">
-<br>施工理由<br>
-<input type="text" name="reason_text">
+    <div class="thirdregistration__title">
+        <br>作業内容の登録
+    </div>
 
-<br>備考<br>
-<input type="text" name="meomo">
+    <div>
+        <form method="POST"  action="{{route('operation.store')}}">
+        @csrf
+            <div class="thirdregistration__body">
+            <Input  type= "hidden"  name= "record_timing_id" value = {{ $record_timing }} >
+                <div class="hidari">
+                    <div class="kousyu">
+                        <br>第一工種<br>
+                        <input type="text" name="first_operation_class" placeholder="例）道路改良">
+                        <br>第二工種<br>
+                        <input type="text" name="second_operation_class" placeholder="例）道路改良工">
+                        <br>第三工種<br>
+                        <input type="text" name="third_operation_class" placeholder="例）道路土工">
+                        <br>第四工種<br>
+                        <input type="text" name="forth_operation_class" placeholder="例）掘削工">
+                        <br>第五工種<br>
+                        <input type="text" name="fifth_operation_class" placeholder="例）掘削（軟岩）">
+                        <br>第六工種<br>
+                        <input type="text" name="sixth_operation_class" placeholder="注）手作りの場合使用">
+                    </div>
 
+                    <br>単位<br>
+                    <input type="text" name="tanni" placeholder="例）m3">
 
-<div class= "add_operation",id = "add_operation">
-<br>追加する<br>
-</div>
+                    <div class="henkou">
+                    <br>変更内容<br>
+                    <textarea name="reason_title" row="10" cols=”50″ wrap=”hard” class="reason" placeholder="例）軟岩の掘削量を100m3増量する。"></textarea>
+                    <br>変更理由<br>
+                    <textarea name="reason_text" row="10" cols=”50″ wrap=”hard” class="reason" placeholder="例）現場測量の結果当初設計と差異があったため。"></textarea>
+                    </div>
+                </div>
 
-<button type="submit" class="btn btn-primary">
-    登録
-</button>
-</form>
+                <div class="migi">
+                    <div class = "sekouryou">
+                        <div class = "sekouryou1">
+                            <br>施工量名（１）<br>
+                            <input type="text" name="first_amount_name" list="sekouryou-syurui" placeholder="テキスト入力" autocomplete="off">
+                            <datalist id="sekouryou-syurui">
+                                <option value="設計数量">設計数量</option>
+                                <option value="地山量">地山量</option>
+                                <option value="ほぐし量">ほぐし量</option>
+                                <option value="締固め量">締固め量</option>
+                            </datalist>
+                            <div class="sekou-suuzi">
+                                <br>施工量（１）<br>
+                            </div>
+                                <input type="number" name="first_amount" >
+                            </div>
+                        <div class = "sekouryou2">
+                            <br>施工量名（２）<br>
+                            <input type="text" name="second_amount_name" list="sekouryou-syurui" placeholder="テキスト入力" autocomplete="off">
+                            <div class="sekou-suuzi">
+                                <br>施工量（２）<br>
+                            </div>
+                            <input type="number" name="second_amount">
+                        </div>
+                        <div class = "sekouryou3">
+                            <br>施工量名（３）<br>
+                            <input type="text" name="third_amount_name" list="sekouryou-syurui" placeholder="テキスト入力" autocomplete="off">
+                            <div class="sekou-suuzi">
+                                <br>施工量（３）<br>
+                            </div>
+                            <input type="number" name="third_amount">
+                        </div>
+                        <div class = "sekouryou4">
+                            <br>施工量名（４）<br>
+                            <input type="text" name="forth_amount_name" list="sekouryou-syurui" placeholder="テキスト入力" autocomplete="off">
+                            <div class="sekou-suuzi">
+                                <br>施工量（４）<br>
+                            </div>
+                            <input type="number" name="forth_amount">
+                        </div>
+                    </div>
+                
+                    <br>簡易数量計算(500文字以下)<br>
+                    <textarea name="kanni_keisan" row="10" cols=”50″ wrap=”hard” class="keisansiki" placeholder="（使用方法）数量総括表にいれる数式を記述してください。"></textarea>
+                    <br>詳細数量計算(5,000文字以下)<br>
+                    <textarea name="ksyousai_keisan" row="100" cols=”50″ wrap=”hard” class="keisansiki" placeholder="（使用方法）数量計算書にいれる数式を記述してください。簡易数量計算と同じでも可です。"></textarea>
+                    <br>備考(1,000文字以下)<br>
+                    <textarea name="memo" row="20" cols=”50″ wrap=”hard” class="memo" placeholder="（使用方法）必要に応じて自由に記述してください。"></textarea>
 
+                    <button type="submit" class="btn btn-primary" >
+                        登録
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
 
-</div>
+    <div class="top-pagehe">
+        <a href="{{route('home')}}"><br>トップページにもどる</a>
+    </div>
+</body>
 
 

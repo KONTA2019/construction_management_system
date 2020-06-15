@@ -18,10 +18,10 @@ class RecordTiming extends Model
         return $this->belongsTo('App\Models\Project','project_id');
     }
 
-    public function operation()
+    public function operations()
     {
         // return $this->hasOne(Operation::class,'record_id');
-        return $this->hasOne('App\Models\Operation','record_timing_id');
+        return $this->hasMany('App\Models\Operation','record_timing_id');
     }
 
 }
