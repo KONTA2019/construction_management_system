@@ -30,6 +30,7 @@ Route::get('/folders/{id}/tasks', 'TaskController@index')->name('tasks.index');
 Route::get('/record_timing/{id}/syousai_matome', 'RecordTimingController@syousai_matome')->name('record_timing.syousai_matome');
 Route::get('/record_timing/{id}/syousai_keisan', 'RecordTimingController@syousai_keisan')->name('record_timing.syousai_keisan');
 
+// /{third_operation_class_id}
 
 Route::resource('project', 'ProjectController');
 Route::resource('record_timing', 'RecordTimingController');
